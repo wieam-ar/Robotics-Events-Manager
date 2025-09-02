@@ -1,0 +1,148 @@
+[
+  {
+    "id": "I.A.V",
+    "title": "I.A.V",
+    "type": "stand",
+    "date": "2025-02-16",
+    "location": "RABAT",
+    "description": "Promotional stand to showcase robotics club activities and future projects.",
+    "status": "past",
+    "image": "IAV.PNG"
+  },
+  {
+    "id": "enime-rabat-hackathon",
+    "title": "enime-rabat-hackathon",
+    "type": "competition",
+    "date": "2025-05-26",
+    "location": "RABAT",
+    "description": "48-hour hackathon where teams build innovative prototypes and pitch their ideas.",
+    "status": "past",
+    "image": "ENIME.PNG"
+  },
+  {
+    "id": "Ensa-Oujda-Competition",
+    "title": "Ensa-Oujda-Competition",
+    "type": "competition",
+    "date": "2025-02-16",
+    "location": "Oujda",
+    "description": "Annual robotics competition at ENSA Oujda featuring multiple teams.",
+    "status": "past",
+    "image": "OUJAD.PNJ"
+  },
+  {
+    "id": "Festival-Sciences-Rabat",
+    "title": "Festival-Sciences-Rabat",
+    "type": "stand",
+    "date": "2025-02-16",
+    "location": "RABAT",
+    "description": "Science festival gathering schools and universities to showcase innovation.",
+    "status": "past",
+    "image": "FESTIVAL.PNG"
+  },
+  {
+    "id": "Ensak Kenetra",
+    "title": "Ensak Kenetra",
+    "type": "competition",
+    "date": "2025-05-05",
+    "location": "KENETRA",
+    "description": "National level robotics competition between engineering schools.",
+    "status": "past",
+    "image": "ENSAK.PNG",
+    "results": {
+      "placement": "2nd place"
+    }
+  },
+  {
+    "id": "Enset Mohamadia",
+    "title": "Enset Mohamadia",
+    "type": "competition",
+    "date": "2025-05-26",
+    "location": "Mohamadia",
+    "description": "competion robotique ",
+    "status": "past",
+    "image": "enset.png",
+    "results": {
+      "placement": "1st place"
+    }
+  },
+  {
+    "id": "Ensa Agadir",
+    "title": "Ensa Agadir",
+    "type": "competition",
+    "date": "2025-04-28",
+    "location": "AGADIR",
+    "description": "Robotics and innovation competition between Moroccan universities.",
+    "status": "past",
+    "image": "AGADIR.PNG"
+  },
+  {
+    "id": "ALX Rabat",
+    "title": "ALX Rabat",
+    "type": "workshop",
+    "date": "2025-04-28",
+    "location": "RABAT",
+    "description": "Interactive workshop on problem-solving and project building in technology.",
+    "status": "past",
+    "image": "ALX.PNG"
+  },
+  {
+    "id": "Competition Local CMC",
+    "title": "Competition Local CMC",
+    "type": "competition",
+    "date": "2025-01-21",
+    "location": "CMC (Local TAMESNA)",
+    "description": "Competition to build a robot that can detect walls using ultrasonic sensors and a tele-guided robot.",
+    "status": "past",
+    "image": "CLR.PNG"
+  },
+  {
+    "id": "ehtp ",
+    "title": "ehtp ",
+    "type": "competition",
+    "date": "2025-06-01",
+    "location": "CASABLANCA",
+    "description": "Ehtp robotic hakathon competion ",
+    "status": "past",
+    "image": "Ehtp.png",
+    "results": {
+      "placement": "1st place"
+    }
+  },
+  {
+    "id": "UM6P",
+    "title": "UM6P",
+    "type": "competition",
+    "date": "2025-04-13",
+    "location": "BENGRIR",
+    "description": "Robotics competition at the Mohammed 6th university",
+    "status": "past",
+    "image": "um6p.png"
+  },{
+    "id": "ESEF Visit",
+    "title": "ESEF Visit",
+    "type": "Activity",
+    "date": "2025-04-13",
+    "location": "TAMESNA",
+    "description": "VISIT OF THE EFSEF TO THE CMC ",
+    "status": "past",
+    "image": "ESEF.png"
+  },{
+    "id": "TEAM BUILDING",
+    "title": "TEAM BUILDING",
+    "type": "Activity",
+    "date": "2025-04-13",
+    "location": "TAMESNA",
+    "description": "TEAM BUILDING AT THE CMC  ",
+    "status": "past",
+    "image": "TEAM_BUILDING.png"
+  },{
+    "id": "EL MONTAZAH ACTIVITY",
+    "title": "EL MONTAZAH ACTIVITY",
+    "type": "Activity",
+    "date": "2025-04-13",
+    "location": "TAMESNA",
+    "description": "TEAM BUILDING AT THE CMC  ",
+    "status": "past",
+    "image": "MONTAZAH.png"
+  }
+]
