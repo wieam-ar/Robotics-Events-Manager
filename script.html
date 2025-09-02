@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Events Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #111;
+      border-bottom: 2px solid #00f7ff;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      color: #00f7ff;
+      font-size: 1.8em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    form {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 234, 255, 0.2);
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+    }
+    form textarea {
+      resize: none;
+      height: 70px;
+    }
+    button {
+      background: #00eaff;
+      color: #111;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #00bcd4;
+    }
+    .event-list {
+      margin-top: 25px;
+    }
+    .event-card {
+      background: #141414;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid #00eaff;
+      border-radius: 8px;
+    }
+    .event-card h3 {
+      margin: 0;
+      color: #00eaff;
+    }
+    .event-card img {
+      max-width: 120px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+    #downloadBtn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      background: #ff00ff;
+      color: #fff;
+    }
+    #downloadBtn:hover {
+      background: #cc00cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="image.png" alt="Robot Logo">
+    <h1>Robotics Events Manager</h1>
+  </header>
+  <div class="container">
+    <form id="eventForm">
+      <input type="text" id="title" placeholder="Event Title" required>
+      <input type="text" id="location" placeholder="Location" required>
+      <input type="date" id="date" required>
+      <select id="type" required>
+        <option value="">-- Select Event Type --</option>
+        <option value="competition">Competition</option>
+        <option value="workshop">Workshop</option>
+        <option value="stand">Stand</option>
+        <option value="festival">Festival</option>
+      </select>
+      <textarea id="description" placeholder="Description"></textarea>
+      <input type="text" id="image" placeholder="Image URL (optional)">
+      <!-- Results (only for competitions) -->
+      <div class="full" id="resultsField">
+        <label for="placement">Competition Result (optional)</label>
+        <input type="text" id="placement" placeholder="e.g. 2nd Place">
+      </div>
+      <button type="submit">Add Event</button>
+    </form>
+
+    <button id="downloadBtn">⬇️ Download Events JSON</button>
+
+    <div class="event-list" id="eventList"></div>
+  </div>
+
+  <script>
+  let events = [];
+
+const form = document.getElementById("eventForm");
+const eventList = document.getElementById("eventList");
+const typeField = document.getElementById("type");
+const resultsField = document.getElementById("resultsField");
+const placementField = document.getElementById("placement");
+
+// 🔹 إظهار/إخفاء حقل النتيجة حسب نوع الحدث
+typeField.addEventListener("change", () => {
+  if (typeField.value === "competition") {
+    resultsField.style.display = "block";
+  } else {
+    resultsField.style.display = "none";
+    placementField.value = "";
+  }
+});
+
+// نخفيه من الأول
+resultsField.style.display = "none";
+
+function getStatus(date) {
+  const today = new Date().toISOString().split("T")[0];
+  return date < today ? "past" : "upcoming";
+}
+
+function renderEvents() {
+  eventList.innerHTML = "";
+  events.forEach(ev => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.innerHTML = `
+      <h3>${ev.title}</h3>
+      <p><b>Type:</b> ${ev.type}</p>
+      <p><b>Location:</b> ${ev.location}</p>
+      <p><b>Date:</b> ${ev.date}</p>
+      <p><b>Status:</b> ${ev.status}</p>
+      <p><b>Description:</b> ${ev.description}</p>
+      ${ev.image ? `<img src="${ev.image}" alt="Event image">` : ""}
+      ${
+        ev.type === "competition" && ev.results
+          ? `<p><b>Result:</b> ${ev.results.placement}</p>`
+          : ""
+      }
+    `;
+    eventList.appendChild(card);
+  });
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const title = document.getElementById("title").value;
+  const event = {
+    id: title,
+    title,
+    type: typeField.value,
+    date: document.getElementById("date").value,
+    location: document.getElementById("location").value,
+    description: document.getElementById("description").value,
+    status: getStatus(document.getElementById("date").value),
+    image: document.getElementById("image").value
+  };
+
+  // 🔹 إضافة results إذا كان نوع event هو competition
+  if (event.type === "competition" && placementField.value.trim() !== "") {
+    event.results = {
+      placement: placementField.value.trim()
+    };
+  }
+
+  events.push(event);
+  renderEvents();
+  form.reset();
+  resultsField.style.display = "none"; // نخفي الحقل بعد الإرسال
+});
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(events, null, 2)], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "events.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+  </script>
+</body>
+</html>

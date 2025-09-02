@@ -1,0 +1,123 @@
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+        color: #f1f1f1;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: #111;
+        border-bottom: 2px solid #00f7ff;
+    }
+
+    header img {
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    header h1 {
+        color: #00f7ff;
+        font-size: 1.8em;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px rgba(0, 247, 255, 0.2);
+    }
+
+    h2 {
+        color: #00f7ff;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1em;
+    }
+
+    form input,
+    form select {
+        background: #222;
+        color: #fff;
+    }
+
+    form textarea {
+        background: #222;
+        color: #fff;
+        resize: none;
+        height: 80px;
+    }
+
+    button {
+        background: #00f7ff;
+        color: #111;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #00c4cc;
+    }
+
+    .event-list {
+        margin-top: 20px;
+    }
+
+    .event-card {
+        background: #111;
+        border-left: 5px solid #00f7ff;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 247, 255, 0.1);
+    }
+
+    .event-card h3 {
+        margin: 0;
+        color: #00f7ff;
+    }
+
+    .event-card p {
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+
+    .event-card img {
+        max-width: 150px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    #download {
+        background: #ff00ff;
+        color: #fff;
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    #download:hover {
+        background: #cc00cc;
+    }
